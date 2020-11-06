@@ -1,0 +1,44 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Edit /etc/host file
+      lineinfile:
+        path: /etc/hosts
+        line: "192.168.0.1 anzible.example.com"   
+    - name: Install elinks
+      package:
+        name: elinks
+        state: latest
+    - name: Create user user1
+      user:
+        name: user1
+        state: present
+    - name: Copy /home/ansible/motd to /etc/
+      copy:
+        src: /home/ansible/motd
+        dest: /etc/motd
+    - name: Copy /home/ansible/issue to /etc/
+      copy:
+        src: /home/ansible/issue
+        dest: /etc/issue
+
+- hosts: network
+  become: yes
+  tasks:
+    - name: Install netcat
+      yum:
+        name: nmap-ncat 
+        state: latest
+    - name: Create user user2
+      user:
+        name: user2
+        state: present
+
+- hosts: sysadmin
+  become: yes
+  tasks:
+    - name: Copy /home/ansible/scripts.tgz to /mnt/storage
+      copy:
+        src: /home/ansible/scripts.tgz
+        dest: /mnt/storage
