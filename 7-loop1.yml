@@ -1,5 +1,5 @@
 --- # loop example
-- hosts: vsathyak2
+- hosts: localhost
   become: yes
   tasks:
     - name: Install a list of softwares
