@@ -6,10 +6,16 @@
  
  Create a playbook called /home/ansible/bootstrap.yml for the below System Admin tasks
 
-- Edit /etc/hosts to include the host entry    
+- Edit /etc/hosts to include the host entry   
+
 . Install elinks
+
 . Create the new user
+
 . Copy the files /home/ansible/motd and /home/ansible/issue to /etc/
+
 . Install nmap-ncat
+
 . Create the user xyzcorp_network
+
 - Copy /home/ansible/scripts.tgz from the control node to /mnt/storage
