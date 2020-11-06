@@ -1,0 +1,12 @@
+--- # template example
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  vars:
+    code_name: vodka
+    version: 5.2
+  tasks:
+    - name: Deploy config file
+      template:
+        src: template-config.j2
+        dest: /opt/config
