@@ -9,5 +9,5 @@
     - name: access magic variables
       lineinfile:
         path: /home/ansible/hostname
-        line: ""{{ hostvars['vsathyak2']['ansible_default_ipv4']['address'] }}""
+        line: ""{{ hostvars['localhost']['ansible_default_ipv4']['address'] }}""
         # Other magic variables are groups, group_name and inventory_hostname
