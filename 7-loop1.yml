@@ -1,0 +1,13 @@
+--- # loop example
+- hosts: vsathyak2
+  become: yes
+  tasks:
+    - name: Install a list of softwares
+      yum:
+ # Item is the variable that work with loops.
+        name: "{{ item }}"                   
+        state: present
+      loop:
+        - elinks
+        - nmap-ncat
+        - bind-utils
