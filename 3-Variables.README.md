@@ -14,7 +14,7 @@ cp vars1.yml host_vars/localhost
 cp vars1.yml group_vars/localhost
 
 
-Running vars_play.yml and using vars.ymls for variable definitions
+Running vars2.yml and using vars1.ymls for variable definitions
 ------------------------------------------------------------------
 
 ansible-playbook vars_play.yml -e @vars1.yml
