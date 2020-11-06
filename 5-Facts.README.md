@@ -10,5 +10,6 @@ Variables related to remote systems are called facts. With facts, you can use th
 
 -  Setting gather_facts: no in playbook would change the default fact_gather behaviour
 
-AD-HOC - ansible -i inv localhost -m setup -a 'filter=ansible_all_ipv4_addresses' 
+AD-HOC - ansible -i inv localhost -m setup -a 'filter=ansible_all_ipv4_addresses'
+
 AD-HOC - ansible -i inv localhost -m setup -a filter=*ipv4*
