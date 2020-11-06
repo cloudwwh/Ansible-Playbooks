@@ -1,0 +1,12 @@
+--- # Cloudwwh Playbook Example
+ - hosts: localhost
+   become: yes
+   tasks:
+     - name: Install Software
+       yum:
+         name: build-utils
+         state: latest
+     - name: install software
+       yum:
+         name:  net-tools
+         state: latest
