@@ -1,0 +1,16 @@
+--- # ansible conditional example
+- hosts: localhost
+  vars:
+    target_file: /home/ansible/hostname
+  tasks:
+    - name: Gather file information
+    # stat module used to retrieve file or file s/m status
+      stat:                                                     
+        path: "{{ target_file }}"
+    # hostname going to hold value of path variable
+      register: hostname                                        
+    - name: Rename hostname when found
+    # command module used since no mv module available. You can use shell as well
+      command: mv "{{ target_file }}" /home/ansible/net-info    
+    # Same as hostname['stat']['exists']
+      when: hostname.stat.exists                                
