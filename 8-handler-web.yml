@@ -1,0 +1,29 @@
+--- # Bootstrap webservers
+- hosts: remote
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: install latest httpd
+      yum:
+        name: "{{ target_service }}"
+        state: latest
+      notify:
+  # A change in task yum will call the handler restart httpd
+        - restart httpd                  
+    - name: create index.html file
+      file:
+        name: /var/www/html/index.html
+        state: touch
+    - name: add web content
+      lineinfile:
+        line: "{{ ansible_hostname }}"
+        path: /var/www/html/index.html
+  # A change in task yum will call the handler restart httpd
+      notify:
+        - restart httpd                 
+  handlers:
+    - name: Attempt to restart httpd
+      service:
+        name: httpd
+        state: restarted
+      listen: restart httpd
