@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Create working directory
+      file:
+        name: "{{ working_dir }}"
+        state: directory
+    - name: write service list
+      lineinfile:
+        path: "{{ working_dir }}/services.txt"
+        create: yes
+        line: "{{ service_list }}"
+    - name: view share property
+    # Register module is used to store task output in a variable.
+      command: ls -la "{{ share_paths['nfs'] }}"
+    # Here o/p of the task 'command' is stored in cmd_output
+    register: cmd_output 
+    - name: write command module output to file     
+      copy:
+        content: "{{ cmd_output }}"
+        dest: "{{ working_dir }}/cmd_output.txt"
