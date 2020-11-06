@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Install Software
+      yum: 
+        name: broke
+        state: latest
+# Setting this flag will continue execution even when there is error
+      ignore_errors: yes                          
+    - name: Run utility
+# alliswell is a param passed to do-stuff.sh file
+      command: /home/ansible/do-stuff.sh
+      register: cmd_output
+      changed_when: "'CHANGED' in cmd_output.stdout"
+      failed_when: "'FAIL' in cmd_output.stdout"
