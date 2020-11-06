@@ -1,0 +1,25 @@
+---
+- hosts: nfs
+  become: yes
+  vars:
+    share_path: /mnt/nfsroot
+  tasks:
+  - name: Install nfs-util
+    yum:
+      name: nfs-utils
+      state: latest
+  - name: Start and enable nfs service
+    service: 
+      name: nfs-server
+      enabled: yes
+      state: started
+  - name: Configure /etc/exports
+    template:
+# variable 'share_path' is used over here
+      src: /home/ansible/exports.j2       
+      dest: /etc/exports
+    notify: updated /etc/exports
+  handlers:
+  - name: update nfs exports
+    command: exportfs -a
+    listen: updated /etc/exports
