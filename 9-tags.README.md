@@ -16,3 +16,14 @@ Select or skip tags when you run your playbook.
 . We can use tags to skip execution of certain parts
 
 . We can specify which tags to run or not run via arguments to the ansible-playbook command
+
+Options to run 
+
+ansible-playbook -i inv tags.yml -t software              --> Run only the task which has software tag
+
+ansible-playbook -i inv tags.yml --tags software          --> Run only the task which has software tag
+
+ansible-playbook -i inv tags.yml --tags software,files   --> Run only the task with software and files tag
+
+ansible-playbook -i inv tags.yml --skip-tags software     --> Skip tasks which has software tag
+
