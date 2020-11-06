@@ -1,0 +1,13 @@
+---  # Ansible facts example
+- hosts: localhost
+  tasks:
+    - name: create a file
+      lineinfile: 
+        path: /home/ansible/hostname
+        create: yes
+        line: "{{ ansible_hostname }}"
+    - name: access magic variables
+      lineinfile:
+        path: /home/ansible/hostname
+        line: ""{{ hostvars['vsathyak2']['ansible_default_ipv4']['address'] }}""
+        # Other magic variables are groups, group_name and inventory_hostname
