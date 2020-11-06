@@ -6,7 +6,7 @@
  
  Create a playbook called /home/ansible/bootstrap.yml for the below System Admin tasks
 
-- Edit /etc/hosts to include the host entry   
+. Update /etc/hosts to include the host entry   
 
 . Install elinks
 
@@ -18,4 +18,4 @@
 
 . Create the user xyzcorp_network
 
-- Copy /home/ansible/scripts.tgz from the control node to /mnt/storage
+. Copy /home/ansible/scripts.tgz from the control node to /mnt/storage
