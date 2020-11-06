@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars_files:
+        /home/ansible/vault/secure
+  tasks:
+  - name: Output Messages
+    shell: echo {{ message }} > /home/user/vault/deployed.txt
+    no_log: true
