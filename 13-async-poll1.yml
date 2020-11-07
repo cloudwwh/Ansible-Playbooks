@@ -2,6 +2,6 @@
 - hosts: localhost
   tasks:
     - name: Run sleep.sh
-      command: /home/ansible/sleep.sh
+      command: /home/ansible/sleep2.sh
       async: 60
       poll: 0
