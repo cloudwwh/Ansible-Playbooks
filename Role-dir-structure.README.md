@@ -35,3 +35,6 @@ ansible-galaxy install role_name
 cd .ansible/roles/role_name
 
 ls -la   will show the directory structure
+
+
+Refer: https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html
