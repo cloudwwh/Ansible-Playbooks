@@ -7,34 +7,34 @@
     - name: install httpd
       yum:
         name: httpd
-	state: latest
+        state: latest
       notify: httpd service
       tags:
         - base-install
-     - name: configure virtual host
-       template:
+    - name: configure virtual host
+      template:
           src: /home/ansible/vhosts.conf.j2
-	  dest: /etc/httpd/conf.d/vhost.conf
-       notify: httpd service
-       tags:
+          dest: /etc/httpd/conf.d/vhost.conf
+      notify: httpd service
+      tags:
          - vhost
-      - name: condifure site auth
-        template:
-	  src: /home/ansible/htpasswd.j2
-	  dest: /etc/httpd/conf/htpasswd
-	notify: httpd service
-	tags:
-	  - vhost
-       - name: run data job
-         command: /opt/data-job.sh
-	 async: 600
-	 poll:0
-	 tags:
-	   - data-job
-   handlers:
-     - name: Start and Enable Httpd
-       service:
+    - name: configure site auth
+      template:
+          src: /home/ansible/htpasswd.j2
+          dest: /etc/httpd/conf/htpasswd
+      notify: httpd service
+      tags:
+          - vhost
+    - name: run data job
+      command: /opt/data-job.sh
+      async: 600
+      poll: 0
+      tags:
+        - data-job
+  handlers:
+    - name: Start and Enable Httpd
+      service:
          name: httpd
-	 state: restarted
-	 enabled: yes
-        listen: httpd service
+         state: restarted
+         enabled: yes
+      listen: httpd service
