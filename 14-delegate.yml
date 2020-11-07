@@ -1,0 +1,13 @@
+--- # Delegation Example
+- hosts: group
+tasks:
+  - name: Run sleep.sh                    
+    command: /home/ansible/sleep.sh      
+    async: 60
+    poll: 10
+    delegate_to: localhost
+  - name: Install mariadb
+    package:
+      name: mariadb
+      state: latest
+    become: yes
