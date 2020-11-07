@@ -76,3 +76,20 @@ Example tasks2:
     
     - result.rc == 2
 
+____________________________________________________________________________________________________________________________
+
+Block Groups and The Debug Module
+
+The debug module may be used to help troubleshoot plays
+
+  - Use to print detail information about in-progress plays
+  
+  - Handy for troubleshooting
+  
+Error handling may also be dealt with using block groups in Ansible. Tere are 3 key blocks that may be used to organize tasks
+
+  - block  : Group tasks into a block 
+  
+  - rescue : A special block that is executed when the preceding blocks fail
+  
+  - always : A special block that is always executed after the preceding block
