@@ -1,0 +1,13 @@
+--- # Serial execution example
+- hosts: all
+#  This will result in installing elinks on the percentage (number) of host on that specific group batch by batch
+  serial
+ - "10%" 
+ - "30%" 
+ - "50%" 
+  become: yes
+  tasks: 
+    - name: Install elinks
+      package:
+        name: elinks
+        state: latest
