@@ -1,0 +1,10 @@
+
+
+ansible-vault encrypt /home/ansible/confidential
+
+ansible-playbook webserver.yml --ask-vault-pass
+
+ansible-playbook webserver.yml --ask-vault-pass --tags vhost
+
+ansible-playbook webserver.yml --ask-vault-pass --tags data-job
+
