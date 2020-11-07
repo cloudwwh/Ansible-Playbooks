@@ -20,3 +20,16 @@ library/my_module.py - Modules, which may be used within this role
 
 README.md Details about the Role
 
+____________________________________________________________________________________________________________________________________________
+
+Galaxy Commands:
+
+man ansible-galaxy
+
+ansible-galaxy search apache
+
+ansible-galaxy install role_name
+
+cd .ansible/roles/role_name
+
+ls -la   will show the directory structure
