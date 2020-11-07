@@ -1,0 +1,10 @@
+--- # Serial execution example
+- hosts: all
+#  This will result in installing elinks only one host at a time.
+  serial : 1                      
+  become: yes
+  tasks: 
+    - name: Install elinks
+      package:
+        name: elinks
+        state: latest
