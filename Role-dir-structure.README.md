@@ -26,6 +26,8 @@ Galaxy Commands:
 
 man ansible-galaxy
 
+ansible-galaxy init role_name (create your own Role)
+
 ansible-galaxy search apache
 
 ansible-galaxy install role_name
