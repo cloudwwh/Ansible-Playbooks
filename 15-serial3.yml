@@ -1,5 +1,7 @@
 --- # Serial execution example
 - hosts: all
+#This means if 10% of total hosts fails, execution will be stiooed
+max_fail_percentage: 10  
 #  This will result in installing elinks on the percentage (number) of host on that specific group batch by batch
   serial
  - "10%" 
